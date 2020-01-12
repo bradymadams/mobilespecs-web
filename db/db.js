@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-    'mongodb://localhost:27017/mobilspecs',
+    'mongodb://localhost:27017/mobilespecs',
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
 

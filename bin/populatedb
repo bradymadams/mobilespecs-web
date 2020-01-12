@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+const fs = require('fs');
+
+const db = require('../db/db');
+const models = require('../db/models');
+
+function createSlug(text) {
+  return text; // TODO
+};
+
+function loadSuppliers() {
+  suppliers = JSON.parse(fs.readFileSync('./data/suppliers.json'));
+
+  console.log(`${suppliers.length} suppliers`);
+
+  promises = [];
+
+  for (let s of suppliers) {
+    let m = new models.Supplier({
+      active: s.Active,
+      created: Date.now(), // TODO
+      updated: Date.now(),
+      name: s.Name,
+      slug: createSlug(s.Name),
+      abbreviation: s.Abbreviation,
+      website: s.Website
+    });
+
+    promises.push(m.save());
+  };
+
+  return promises;
+}
+
+Promise.all(loadSuppliers()).then(
+  () => db.close()
+);
