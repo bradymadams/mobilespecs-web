@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width')
+
+    title= title
+
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/mobilespecs.css')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+
+    block head
+  body(class='msdata-graphic-body')
+
+    //-nav(class='navbar navbar-fixed-top msdata-navbar ms-header-row')
+      div(class='container')
+        div(class='col-lg-8 col-sm-8 col-xs-10')
+          a(class='ms-header-text', href='TODO-Home')='Home'
+          a(class='ms-header-text', href='TODO-About')='About'
+        div(class='col-lg-4 col-sm-4 col-xs-2 nav navbar-left')
+
+    nav(class='navbar navbar-inverse navbar-default msdata-navbar')
+      div(class='container')
+        //-div(class='col-md-4 col-sm-3 col-xs-2 navbar-left')
+          a(class='msdata-home', href='/')
+            img(src='img/home.png', class='msdata-home-icon')
+        div(class='col-xl-3 col-lg-3 col-md-3 col-sm-5 col-xs-7 nav navbar-nav msdata-nav-logo-wtext')
+          a(href='/')
+            img(src='img/logo-top.png', class='msdata-center')
+        //-ul(class='col-md-5 col-sm-4 col-xs-3 nav navbar-right msdata-nav-icons')
+          li
+
+    div(class='container body-content')
+      block content

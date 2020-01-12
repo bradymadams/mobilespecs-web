@@ -1,0 +1,954 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+body.msdata-graphic-body {
+    background-image: url('/img/web-background-light.svg');
+    background-size: cover;
+}
+
+@media screen and (max-width:768px) {
+    body.msdata-graphic-body {
+        background-image: none;
+    }
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.msdata-navbar {
+    background-color:#e5e5e5;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 0px;
+    border-bottom:solid 1px #3b88b6;
+    height: 80px;
+    min-height: 30px;
+    margin-bottom: 0px;
+    padding:0px;
+}
+
+.msdata-navbar-email {
+    color:#6f6f6f;
+    font-size:14px;
+    font-weight:500;
+    margin-right:15px;
+}
+
+/*
+    Need to override bootstrap styles that cause
+    .navbar-header and .navbar-right to display:block;
+*/
+nav.msdata-navbar .navbar-header {
+    float:left;
+    margin:auto;
+}
+
+nav.msdata-navbar .navbar-left {
+    padding-left: 10px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    float: left;
+}
+
+nav.msdata-navbar .navbar-right {
+    float: right;
+    padding-left: 10px;
+    padding-right: 0px;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+nav.msdata-navbar .navbar-right li {
+    float:right;
+}
+/* End override */
+
+.ms-header-row {
+    background-color: #0878A0;
+    vertical-align: middle;
+    height: 50px;
+    min-height: 50px;
+}
+
+.ms-header-text {
+    color: #fff;
+    font-weight: bold;
+    vertical-align:middle;
+    font-size: 18px;
+    line-height: 50px;
+    padding-right: 20px;
+}
+
+.msdata-hamburger {
+    border:none;
+    background-color:transparent;
+    padding-top:10px;
+    padding-bottom:10px;
+    float: right;
+    vertical-align: middle;
+}
+
+.msdata-home {
+    border: none;
+    background-color: transparent;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: left;
+    vertical-align: middle;
+}
+
+.msdata-icon-bar {
+    width:30px;
+    height:2px;
+    border: 1px solid #656666;
+    fill: #656666;
+    border-radius:2px;
+    margin-top:6px;
+    margin-bottom:6px;
+    transition: all 0.2s;
+}
+
+.msdata-nav-dropdown {
+    position: relative;
+    left:auto;
+    padding:10px;
+    background-color:#fff;
+    min-width:300px;
+    width: 300px;
+    text-align: left;
+}
+
+.msdata-home-icon {
+    height: 35px;
+}
+
+.msdata-nav-icons {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.msdata-nav-icons li {
+    float: right !important;
+}
+
+.msdata-nav-icons a {
+    padding:5px 10px 5px 10px !important;
+}
+
+.msdata-nav-icons img {
+    height:35px;
+}
+
+.msdata-nav-logo-wtext {
+    text-align: center;
+    display: block;
+    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.msdata-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.msdata-title {
+    font-size: 34px;
+    color: #0096C8;
+    padding: 30px 10px 0px 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 40px auto 10px auto;
+}
+
+.msdata-subtitle {
+    font-size: 17px;
+    color: #a0a0a0;
+    padding: 10px 10px 20px 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
+    font-weight: 500;
+    margin: auto;
+}
+
+.msdata-footer-text {
+    font-size: 12px;
+    color: #a0a0a0;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+@media screen and (min-width:768px) {
+    .msdata-nav-logo-wtext img {
+        width: 270px;
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .msdata-nav-logo-wtext img {
+        width: 230px;
+        padding-top: 4px;
+    }
+
+    /*.msdata-hamburger {
+        padding-top: 14px;
+    }*/
+
+    /*.msdata-icon-bar {
+        width: 22px;
+        height: 2px;
+        border: 1px solid #656666;
+        fill: #656666;
+        border-radius: 2px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }*/
+
+    .msdata-title {
+        margin-top: 10px;
+        margin-bottom: 40px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width:450px) {
+
+    .msdata-nav-dropdown {
+        right: 150px;
+    }
+
+    .msdata-nav-logo-wtext img {
+        width: 200px;
+        padding-top: 5px;
+    }
+
+    .msdata-title {
+        margin-bottom: 30px;
+        font-size: 24px;
+    }
+
+    .ms-header-text {
+        font-size: 16px;
+    }
+
+    .msdata-nav-icons img {
+        height: 30px;
+    }
+
+    .msdata-home-icon {
+        margin-top: 3px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width:380px) {
+
+    .msdata-nav-logo-wtext img {
+        width: 170px;
+        padding-top: 7px;
+    }
+
+    .msdata-nav-icons {
+        padding-top: 6px;
+    }
+
+    .msdata-nav-icons img {
+        height: 25px;
+    }
+
+    .ms-header-text {
+        font-size: 13px;
+    }
+
+    .msdata-home-icon {
+        height: 25px;
+    }
+}
+
+@media screen and (max-width:350px) {
+
+    .ms-header-text {
+        font-size: 10px;
+    }
+}
+
+#msdata-search-bar {
+    margin: 20px auto 40px auto;
+}
+
+#msdata-search-bar .glyphicon-search {
+    font-size:32px;
+    color:#6f6f6f;
+    height:40px;
+    padding-top:4px;
+}
+
+#msdata-search-bar input {
+    font-size: 16px;
+    font-weight: 200;
+    color: #aaa;
+    height: 40px;
+    border-radius: 0px;
+    border-color: #6f6f6f;
+    border-style: none;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    -webkit-appearance: none;
+}
+
+#msdata-search-bar input:focus {
+    outline-width:0;
+    border-color:#3b88b6;
+}
+
+#msdata-search-bar-footer {
+    color:#808080;
+    font-size:12px;
+    text-align:center;
+    margin-top:4px;
+}
+
+#msdata-searching-notification {
+    display:none;
+}
+
+.msdata-search-result-header {
+    color:#6f6f6f;
+    font-style:italic;
+    text-align:center;
+}
+
+.msdata-search-result-link:hover {
+    text-decoration:none;
+}
+
+.msdata-search-result-link-text {
+    color:#6f6f6f;
+    margin:0px;
+    padding-top:10px;
+    padding-bottom:4px;
+}
+
+.msdata-search-result-link-text:hover {
+    background-color:#f2f2f2;
+    text-decoration:none;
+}
+
+.msdata-search-result-link-text .main {
+    font-size:18px;
+    font-weight:600;
+}
+
+.msdata-search-result-link-text .sub {
+    font-size:14px;
+    font-weight:400;
+    font-style:italic;
+}
+
+.msdata-search-result hr {
+    padding:0;
+    margin:0;
+}
+
+.msdata-app-button {
+    font-size: 16px;
+    margin: 10px auto 50px auto;
+    text-align: center;
+    font-weight: 500;
+    display: block;
+    max-width: 200px;
+    color: #ffffff;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    border-width: 2px;
+}
+
+.msdata-directory-link {
+    font-size: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.msdata-directory-link a {
+    color:rgb(0, 120, 160);
+}
+
+@media screen and (max-width:768px) {
+
+    #msdata-search-bar {
+        width: 90%;
+    }
+
+    #msdata-search-bar input {
+        font-size: 14px;
+    }
+
+    .msdata-app-button {
+        font-size: 14px;
+        width: 180px;
+        margin-top: 0px;
+        margin-bottom: 45px;
+    }
+
+    .msdata-directory-link {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    
+    #msdata-search-bar{
+        margin-bottom: 30px;
+    }
+}
+
+.msdata-favorites-link {
+    font-size:24px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.msdata-favorites-link a {
+    vertical-align:middle;
+}
+
+.msdata-favorites-link a:hover {
+    text-decoration:none;
+}
+
+.msdata-favorites-link img {
+    height:26px;
+    vertical-align:middle;
+}
+
+.msdata-directory-nav-deactive {
+    color:#aaa;
+    text-decoration: none;
+    cursor:default;
+}
+
+.msdata-directory-nav-deactive:hover {
+    color:#aaa;
+    text-decoration: none;
+    cursor:default;
+}
+
+.msdata-login-notification {
+    font-size:16px;
+    color: #0096C8;
+    background-color:#fffc84;
+    padding:10px 10px 10px 10px;
+    border-radius:10px;
+}
+
+.msdata-login-notification a {
+    text-decoration:underline;
+}
+
+.msdata-logging-in {
+    text-align:center;
+}
+
+.msdata-login-spinner {
+    display:inline-block;
+    border:4px solid #e7e7e7;
+    border-radius:50%;
+    border-top:4px solid #337ab7;
+    width:30px;
+    height:30px;
+    -webkit-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.msdata-login-error {
+    text-align:center;
+}
+
+.msdata-login-error p {
+    color:#990000;
+    display:inline-block;
+}
+
+.msdata-remember-favs, .msdata-download-access {
+    display:none;
+}
+
+.msdata-remember-units {
+    display:inline-block;
+}
+
+.msdata-favorite-icon {
+    margin-top:10px;
+    margin-right:10px;
+    padding:0;
+    height:30px;
+    width:30px;
+    cursor:pointer;
+}
+
+.msdata-document-icon {
+    margin-top:10px;
+    padding:0px;
+    height:30px;
+    width:22px;
+    cursor:pointer;
+}
+
+.msdata-grade-name {
+    font-weight:600;
+    margin-top:10px;
+    margin-bottom:0px;
+}
+
+.msdata-grade-generic {
+    font-style:italic;
+    margin-top:10px;
+    margin-bottom:5px;
+}
+
+.msdata-grade-description, .msdata-grade-processing {
+    font-style:italic;
+    margin-bottom:20px;
+    white-space: pre-line;
+}
+
+/*.msdata-grade-description-main, .msdata-grade-processing-main {
+}*/
+
+.msdata-grade-description-extra, .msdata-grade-processing-extra {
+    display:none;
+}
+
+.msdata-grade-description-more, .msdata-grade-processing-more {
+    font-weight:600;
+    color:#3b88b6;
+    display:none;
+}
+
+.msdata-grade-description-less, .msdata-grade-processing-less {
+    font-weight:600;
+    color:#3b88b6;
+    display:none;
+}
+
+/*.msdata-grade-table {
+}*/
+
+.msdata-grade-table-header-row {
+    font-weight:800;
+}
+
+.msdata-grade-table-row {
+    padding-top:8px;
+    padding-bottom:8px;
+}
+
+.msdata-grade-table-row-1 {
+    background-color:#f2f2f2;
+}
+
+.msdata-grade-table-row-2 {
+    background-color:#cdedf9;
+}
+
+.msdata-predicted-prop span {
+    color:#2bc237;
+    cursor:default;
+}
+
+.msdata-predicted-prop .msdata-prop-value {
+}
+
+img.msdata-prop-value-icon {
+    width:18px;
+    margin-left:5px;
+    margin-bottom:2px;
+}
+
+.msdata-footer-button {
+    border-color: #aaa;
+    border-width: thin;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.msdata-legal-docs {
+    font-size: 12px;
+    color: #a0a0a0;
+    text-align: right;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.msdata-feature-notification {
+    display:none;
+    max-width:250px;
+    background-color:#e5e5e5;
+    border: #5cb85c 3px solid;
+}
+
+.msdata-feature-notification .new {
+    background-color:#5cb85c;
+    padding:5px 10px 5px 10px;
+    font-size:24px;
+    font-weight:600;
+    color:white;
+}
+
+.msdata-feature-notification .message {
+    font-size:18px;
+    padding:5px 10px 0px 10px;
+}
+
+.msdata-feature-notification .arrow {
+    position:absolute;
+    top:30px;
+    right:-33px;
+}
+
+.msdata-feature-notification .dismiss {
+    padding-top:4px;
+    cursor:pointer;
+}
+
+@media screen and (max-width:500px) {
+    .msdata-feature-notification {
+        max-width:150px;
+    }
+    .msdata-feature-notification .new {
+        font-size:20px;
+    }
+    .msdata-feature-notification .message {
+        font-size:16px;
+        max-width:150px;
+    }
+}
+
+.msdata-predicted-data-dialog, .msdata-predicted-data-dialog-static {
+    padding:10px;
+    background-color:#fff;
+    border:1px solid black;
+    border-radius:4px;
+    text-align:center;
+}
+
+.msdata-predicted-data-dialog {
+    max-width:250px;
+    margin:0px;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+.msdata-predicted-data-dialog-static {
+    margin-bottom:20px;
+}
+
+.msdata-predicted-data-dialog img {
+    margin-top:5px;
+    margin-bottom:10px;
+    max-width:81px;
+}
+
+.msdata-predicted-data-dialog-static img {
+    max-width:80px;
+}
+
+@media screen and (max-width:767px) {
+    .msdata-predicted-data-dialog-static img {
+        margin-bottom:10px;
+    }
+}
+
+.msdata-predicted-data-dialog h4, .msdata-predicted-data-dialog-static h4 {
+    padding:1px;
+    font-weight:600;
+    margin-top:4px;
+    margin-bottom:4px;
+}
+
+.msdata-predicted-data-dialog hr, .msdata-predicted-data-dialog-static hr {
+    margin-top:3px;
+    margin-bottom:3px;
+}
+
+.msdata-predicted-data-dialog a, .msdata-predicted-data-dialog-static a {
+    cursor:pointer;
+}
+
+.msdata-ml-learn-more-link {
+    margin-bottom:0px;
+}
+
+.msdata-predicted-data-dialog-template {
+    display:none;
+}
+
+/*
+    Color palette cards
+*/
+.color-palette-cards {
+    padding:0;
+    margin-top:20px;
+}
+
+.color-palette-cards .card {
+    padding-left:30px;
+    min-height:50px
+}
+
+.color-palette-cards .card-triangle {
+    z-index:1;
+    position:absolute;
+    right:-15px;
+    top:35px;
+}
+
+.color-palette-cards .card-1 {
+    background-color:#c9e6f2;
+    fill:#c9e6f2;
+}
+
+.color-palette-cards .card-triangle-1 {
+    fill:#c9e6f2;
+}
+
+.color-palette-cards .card-2 {
+    background-color:#94cfe6;
+}
+
+.color-palette-cards .card-triangle-2 {
+    fill:#94cfe6;
+}
+
+.color-palette-cards .card-3 {
+    background-color:#5eb6d9;
+}
+
+.color-palette-cards .card-triangle-3 {
+    fill:#5eb6d9;
+}
+
+.color-palette-cards .card-4 {
+    background-color:#289dcc;
+}
+
+.color-palette-cards h1 {
+    color:rgb(80,80,80);
+    font-size:30px;
+    font-weight:400;
+    line-height:70px;
+}
+
+.color-palette-cards h2 {
+    color:rgb(80,80,80);
+    font-size:18px;
+    font-weight:400;
+    font-style:italic;
+    line-height:36px;
+}
+
+.color-palette-cards p {
+    color:rgb(80,80,80);
+    font-size:13px;
+    font-weight:300;
+    line-height:26px;
+}
+
+@media screen and (min-width:768px) {
+    .color-palette-cards .card {
+        min-height: 400px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .color-palette-cards .card {
+        min-height: 545px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .color-palette-cards h1 {
+        font-size: 26px;
+        padding-top: 15px;
+    }
+
+    .color-palette-cards h2 {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+    .color-palette-cards p {
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .color-palette-cards h1 {
+        font-size: 24px;
+        padding-top: 15px;
+    }
+
+    .color-palette-cards h2 {
+        font-size: 17px;
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .color-palette-cards h1 {
+        font-size: 20px;
+    }
+
+    .color-palette-cards h2 {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .color-palette-cards h1 {
+        font-size: 17px;
+    }
+
+    .color-palette-cards h2 {
+        font-size: 13px;
+    }
+
+    .color-palette-cards p {
+        font-size: 11px;
+    }
+}
+
+/*
+    Footer
+*/
+footer {
+    margin-top:20px;
+}
+
+footer .mailing-list-link {
+    text-align: center;
+    margin: 0px auto 5px auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+footer .mailing-list-link a {
+    color:#0096C8;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    display:inline-block;
+    padding-right:10px;
+}
+
+footer ul li a {
+    color: #a0a0a0;
+    font-weight:200;
+}
+
+@media screen and (max-width:768px) {
+
+    .msdata-footer-text{
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .msdata-legal-docs {
+        text-align: center;
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+}
+
+/*
+    App install
+*/
+.app-badge-apple {
+    max-width:250px;
+    margin-top:22px;
+}
+
+.app-badge-google {
+    max-width:300px;
+    margin-left:-22px;
+}
+
+.app-install-description {
+    min-height:70px;
+}
+
+/*
+    ML Page
+*/
+
+.ms-ml-header {
+    margin-bottom: 20px;
+    margin-top:20px;
+}
+
+@media screen and (min-width:768px) {
+    .ms-ml-header h1 {
+        line-height: 60px;
+        font-size: 40px;
+    }
+
+    .ms-ml-header img {
+        max-height:300px;
+        margin-bottom: 30px;
+    }
+
+    .ml-props-fade-img {
+        max-width: 786px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .ms-ml-header h1 {
+        text-align:center;
+    }
+
+    .ms-ml-header img {
+        max-height:200px;
+        margin-bottom: 30px;
+    }
+
+    .ml-props-fade-img {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1(class='msdata-title')= 'Injection Molding Processing Data'
+  h2(class='msdata-subtitle')= '20,000 accurate plastics material data sheets from 100 suppliers'
+
+  div(id='msdata-search')
+    div(id='msdata-search-bar', class='row justify-content-center')
+      input(type='text' class='col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-12',
+            placeholder='Search Supplier, Product or Grade' autofocus)
+    
+    div(id='msdata-search-results')
