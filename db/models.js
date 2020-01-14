@@ -4,11 +4,14 @@ mongoose.set('useCreateIndex', true);
 
 function baseSchema(add) {
   var schema = new mongoose.Schema({
+    name: String,
     active: Boolean,
     created: Date,
     updated: Date,
     slug: String
   });
+
+  schema.index({slug: 'text'});
 
   schema.add(add);
 
@@ -16,13 +19,22 @@ function baseSchema(add) {
 };
 
 var supplierSchema = baseSchema({
-    name: String,
-    abbreviation: String,
-    website: String
+  abbreviation: String,
+  website: String,
+  products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
 });
 
-supplierSchema.index({slug: 'text'});
+var productSchema = baseSchema({
+  _supplier: { type: mongoose.Schema.Types.ObjectId , ref: 'Supplier' },
+  materials: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Material' }]
+});
+
+var materialSchema = baseSchema({
+  product: { type: mongoose.Schema.Types.ObjectId , ref: 'Product' },
+})
 
 const Supplier = mongoose.model('Supplier', supplierSchema);
+const Product = mongoose.model('Product', productSchema);
+const Material = mongoose.model('Material', materialSchema);
 
-module.exports = { Supplier };
+module.exports = { Supplier, Product, Material };

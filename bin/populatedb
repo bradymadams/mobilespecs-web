@@ -4,27 +4,43 @@ const fs = require('fs');
 const db = require('../db/db');
 const models = require('../db/models');
 
+suppliers = JSON.parse(fs.readFileSync('./data/suppliers.json'));
+products = JSON.parse(fs.readFileSync('./data/products.json'));
+
 function createSlug(text) {
   return text; // TODO
 };
 
-function loadSuppliers() {
-  suppliers = JSON.parse(fs.readFileSync('./data/suppliers.json'));
+function makeObject(obj, additional) {
+  props = {
+    name: obj.Name,
+    active: obj.Active,
+    created: Date.now(), // TODO
+    updated: Date.now(),
+    slug: createSlug(obj.Name),
+  };
 
+  if (additional !== undefined) {
+    Object.assign(props, additional);
+  }
+
+  return props;
+};
+
+function loadSuppliers() {
   console.log(`${suppliers.length} suppliers`);
 
   promises = [];
 
   for (let s of suppliers) {
-    let m = new models.Supplier({
-      active: s.Active,
-      created: Date.now(), // TODO
-      updated: Date.now(),
-      name: s.Name,
-      slug: createSlug(s.Name),
-      abbreviation: s.Abbreviation,
-      website: s.Website
-    });
+    base = makeObject(s,
+      {
+        abbreviation: s.Abbreviation,
+        website: s.Website
+      }
+    );
+
+    let m = new models.Supplier(base);
 
     promises.push(m.save());
   };
@@ -32,6 +48,52 @@ function loadSuppliers() {
   return promises;
 }
 
-Promise.all(loadSuppliers()).then(
-  () => db.close()
+function loadProducts() {
+  console.log(`${products.length} products`);
+
+  promises = [];
+
+  for (let p of products) {
+    let supplier = suppliers.find(s => s.Id == p.ManufacturerId);
+
+    let newSupplier = models.Supplier.find(
+      { $text: {$search: createSlug(supplier.Name)} }
+    );
+
+    // newSupplier is a query, need to get id from it
+
+    base = makeObject(p,
+      {
+        supplier: '' //newSupplier._id
+      }
+    );
+    
+    let m = new models.Product(base);
+
+    promises.push(m.save());
+  };
+
+  return promises;
+};
+
+function loadModels() {
+  Promise.all(loadSuppliers()).then(
+    () =>
+      Promise.all(loadProducts()).then(
+        () => db.close()
+      )
+  );
+}
+
+async function clean(callback) {
+  await models.Supplier.deleteMany({});
+  await models.Product.deleteMany({});
+  callback();
+}
+
+db.once(
+  'open',
+  () => {
+    clean(loadModels);
+  }
 );
