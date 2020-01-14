@@ -2,6 +2,19 @@ const mongoose = require('mongoose');
 
 mongoose.set('useCreateIndex', true);
 
+function buildSlug(text) {
+  const dash = '-';
+  const empty = '';
+
+  slug = text
+    .toLowerCase()
+    .trim()
+    .replace(/[\.\,\"®™#²]/g, empty)
+    .replace(/[\s\/\\\+\&\:\;]/g, dash);
+
+  return slug;
+}
+
 function baseSchema(add) {
   var schema = new mongoose.Schema({
     name: String,
@@ -12,6 +25,10 @@ function baseSchema(add) {
   });
 
   schema.index({slug: 'text'});
+
+  schema.methods.buildSlug = function() {
+    return buildSlug(this.name);
+  };
 
   schema.add(add);
 
@@ -37,4 +54,4 @@ const Supplier = mongoose.model('Supplier', supplierSchema);
 const Product = mongoose.model('Product', productSchema);
 const Material = mongoose.model('Material', materialSchema);
 
-module.exports = { Supplier, Product, Material };
+module.exports = { Supplier, Product, Material, buildSlug };

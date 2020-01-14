@@ -7,17 +7,13 @@ const models = require('../db/models');
 suppliers = JSON.parse(fs.readFileSync('./data/suppliers.json'));
 products = JSON.parse(fs.readFileSync('./data/products.json'));
 
-function createSlug(text) {
-  return text; // TODO
-};
-
 function makeObject(obj, additional) {
   props = {
     name: obj.Name,
     active: obj.Active,
     created: Date.now(), // TODO
     updated: Date.now(),
-    slug: createSlug(obj.Name),
+    slug: null,
   };
 
   if (additional !== undefined) {
@@ -42,6 +38,8 @@ function loadSuppliers() {
 
     let m = new models.Supplier(base);
 
+    m.slug = m.buildSlug();
+
     promises.push(m.save());
   };
 
@@ -57,7 +55,7 @@ function loadProducts() {
     let supplier = suppliers.find(s => s.Id == p.ManufacturerId);
 
     let qp = models.Supplier.find(
-      { $text: {$search: createSlug(supplier.Name)} }
+      { $text: {$search: models.buildSlug(supplier.Name)} }
     ).exec();
 
     let prom = qp.then(
@@ -69,6 +67,8 @@ function loadProducts() {
         );
         
         let m = new models.Product(base);
+
+        m.slug = m.buildSlug();
 
         return m.save();
       }
