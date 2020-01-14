@@ -6,14 +6,29 @@ const models = require('../db/models');
 
 /* GET users listing. */
 router.get('/supplier/:supplierSlug', function(req, res, next) {
-  models.Supplier.find(
-    {
-      $text: {
-        $search: req.params.supplierSlug
+  let q1 = models.Supplier
+    .find(
+      {
+        $text: {
+          $search: req.params.supplierSlug
+        }
       }
+    )
+    .populate(
+      'products'
+    )
+    .exec();
+
+  q1.then(
+    (sdocs) => {
+      let q2 = models.Product
+        .find(
+          { supplier : sdocs[0]._id }
+        )
+        .exec(
+          (err, pdocs) => res.render('directory/supplier', { supplier: sdocs[0], products: pdocs })
+        );
     }
-  ).exec(
-    (err, docs) => res.render('directory/supplier', { supplier: docs[0] })
   );
 });
 

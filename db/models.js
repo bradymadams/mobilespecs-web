@@ -25,7 +25,7 @@ var supplierSchema = baseSchema({
 });
 
 var productSchema = baseSchema({
-  _supplier: { type: mongoose.Schema.Types.ObjectId , ref: 'Supplier' },
+  supplier: { type: mongoose.Schema.Types.ObjectId , ref: 'Supplier' },
   materials: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Material' }]
 });
 

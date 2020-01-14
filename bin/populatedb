@@ -56,21 +56,25 @@ function loadProducts() {
   for (let p of products) {
     let supplier = suppliers.find(s => s.Id == p.ManufacturerId);
 
-    let newSupplier = models.Supplier.find(
+    let qp = models.Supplier.find(
       { $text: {$search: createSlug(supplier.Name)} }
-    );
+    ).exec();
 
-    // newSupplier is a query, need to get id from it
+    let prom = qp.then(
+      docs => {
+        base = makeObject(p,
+          {
+            supplier: docs[0]._id
+          }
+        );
+        
+        let m = new models.Product(base);
 
-    base = makeObject(p,
-      {
-        supplier: '' //newSupplier._id
+        return m.save();
       }
     );
-    
-    let m = new models.Product(base);
 
-    promises.push(m.save());
+    promises.push(prom);
   };
 
   return promises;

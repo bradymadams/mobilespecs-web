@@ -1,15 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-const db = require('../db/db');
+const models = require('../db/models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  suppliers = [];
-
-  //db.
-
-  res.render('index', { suppliers: suppliers });
+  models.Supplier.find(
+    { active: true }
+  ).exec(
+    (err, docs) => res.render('index', { suppliers: docs })
+  );
 });
 
 module.exports = router;

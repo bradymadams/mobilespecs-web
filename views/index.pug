@@ -10,3 +10,9 @@ block content
             placeholder='Search Supplier, Product or Grade' autofocus)
     
     div(id='msdata-search-results')
+
+    div(class='container')
+      div(class='row')
+        each supplier in suppliers
+          div(class='msdata-directory-link msdata-directory-supplier col-xs-12 col-sm-6 col-md-6 col-lg-4')
+            a(href='todo')= supplier.name
