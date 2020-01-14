@@ -15,4 +15,4 @@ block content
       div(class='row')
         each supplier in suppliers
           div(class='msdata-directory-link msdata-directory-supplier col-xs-12 col-sm-6 col-md-6 col-lg-4')
-            a(href='todo')= supplier.name
+            a(href=supplier.url())= supplier.name

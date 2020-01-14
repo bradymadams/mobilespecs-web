@@ -38,13 +38,21 @@ function baseSchema(add) {
 var supplierSchema = baseSchema({
   abbreviation: String,
   website: String,
-  products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
+  //products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
 });
+
+supplierSchema.methods.url = function() {
+  return '/supplier/' + this.slug;
+};
 
 var productSchema = baseSchema({
   supplier: { type: mongoose.Schema.Types.ObjectId , ref: 'Supplier' },
-  materials: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Material' }]
+  //materials: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Material' }]
 });
+
+productSchema.methods.url = function() {
+  return '/product/' + this.supplier.slug + '/' + this.slug;
+};
 
 var materialSchema = baseSchema({
   product: { type: mongoose.Schema.Types.ObjectId , ref: 'Product' },
