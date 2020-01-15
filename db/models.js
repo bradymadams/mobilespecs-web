@@ -54,12 +54,22 @@ productSchema.methods.url = function() {
   return '/product/' + this.supplier.slug + '/' + this.slug;
 };
 
-var materialSchema = baseSchema({
+var genericSchema = baseSchema({
+    abbreviation: String
+});
+
+var fillerSchema = baseSchema({
+    abbreviation: String
+});
+
+var gradeSchema = baseSchema({
   product: { type: mongoose.Schema.Types.ObjectId , ref: 'Product' },
 })
 
 const Supplier = mongoose.model('Supplier', supplierSchema);
 const Product = mongoose.model('Product', productSchema);
-const Material = mongoose.model('Material', materialSchema);
+const Generic = mongoose.model('Generic', genericSchema);
+const Filler = mongoose.model('Filler', fillerSchema);
+const Grade = mongoose.model('Grade', gradeSchema);
 
-module.exports = { Supplier, Product, Material, buildSlug };
+module.exports = { Supplier, Product, Generic, Filler, Grade, buildSlug };
